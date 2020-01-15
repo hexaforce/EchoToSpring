@@ -1,0 +1,25 @@
+version: "3.7"
+
+services:
+
+  spring:
+    build:
+      context: spring/
+    container_name: spring
+    networks:
+      - demo
+    ports:
+      - 8080:8080
+
+  echo:
+    build:
+      context: echo/
+    container_name: echo
+    networks:
+      - demo
+    ports:
+      - 1323:1323
+
+networks:
+  demo:
+    # driver: bridge
