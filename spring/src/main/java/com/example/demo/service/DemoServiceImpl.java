@@ -14,4 +14,10 @@ public class DemoServiceImpl implements DemoService {
 		return String.format("Springで %d を受け取りました", val);
 	}
 
+	@Override
+	public String demo(String val) {
+		log.info("val is {}", val);
+		return String.format("Springで %s を受け取りました", val);
+	}
+
 }

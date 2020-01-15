@@ -28,12 +28,11 @@ public class DemoController {
 		log.info("health check OK!");
 		return "OK";
 	}
-	
+
 	// curl -X POST localhost:8080/demo --header "Content-Type: application/json;charset=utf-8" --data '{"val":100}' | jq
 
 	@PostMapping(value = "/demo")
 	public @ResponseBody DemoResponse demo(@RequestBody DemoRequest request) {
-		log.info(request.toString());
 		String val = demoService.demo(request.val);
 		DemoResponse response = DemoResponse.builder().val(val).build();
 		return response;
