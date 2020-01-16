@@ -4,8 +4,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.security.config.annotation.web.messaging.MessageSecurityMetadataSourceRegistry;
-import org.springframework.security.config.annotation.web.socket.AbstractSecurityWebSocketMessageBrokerConfigurer;
 import org.springframework.web.socket.config.annotation.EnableWebSocket;
 import org.springframework.web.socket.config.annotation.WebSocketConfigurer;
 import org.springframework.web.socket.config.annotation.WebSocketHandlerRegistry;
@@ -31,12 +29,12 @@ public class DemoApplication {
 		}
 	}
 
-	@Configuration
-	public class WebSocketSecurityConfig extends AbstractSecurityWebSocketMessageBrokerConfigurer {
-		@Override
-		protected void configureInbound(MessageSecurityMetadataSourceRegistry messages) {
-			messages.simpDestMatchers("/ws/*").authenticated();
-		}
-	}
+//	@Configuration
+//	public class WebSocketSecurityConfig extends AbstractSecurityWebSocketMessageBrokerConfigurer {
+//		@Override
+//		protected void configureInbound(MessageSecurityMetadataSourceRegistry messages) {
+//			messages.simpDestMatchers("/ws/*").authenticated();
+//		}
+//	}
 
 }
