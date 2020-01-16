@@ -47,11 +47,7 @@ public class DemoController {
 	}
 
 	@PostMapping("/demo")
-/*
-	curl -X POST localhost:8080/demo \
-    --header "Content-Type: application/json;charset=utf-8" \
-    --data '{"val":8624826}'
-*/
+	//curl -X POST localhost:8080/demo --header "Content-Type: application/json;charset=utf-8" --data '{"val":11111}'
 	public @ResponseBody DemoResponse demo(@RequestBody DemoRequest request) {
 		String val = demoService.demo(request.val);
 		DemoResponse response = DemoResponse.builder().val(val).build();
@@ -59,24 +55,20 @@ public class DemoController {
 	}
 
 	@GetMapping("/demo1")
-	// curl http://localhost:8080/demo1 -H 'userId: testuser001' -H 'password: test'
+	// curl http://localhost:8080/demo1 -H 'userId: xxx' -H 'password: xxx'
 	public @ResponseBody DemoResponse demo1(//
 			@RequestHeader(name = "userId", required = true) String userId, //
 			@RequestHeader(name = "password", required = true) String password//
 	) {
-		log.info("userId : {}", userId);
-		log.info("password : {}", password);
 		return DemoResponse.builder().val(UUID.randomUUID().toString()).build();
 	}
 
 	@GetMapping("/demo2")
-	//curl 'http://localhost:8080/demo2?userId=testuser001&password=test'
+	// curl 'http://localhost:8080/demo2?userId=xxx&password=xxx'
 	public @ResponseBody DemoResponse demo2(//
 			@RequestParam(name = "userId", required = true) String userId, //
 			@RequestParam(name = "password", required = true) String password//
 	) {
-		log.info("userId : {}", userId);
-		log.info("password : {}", password);
 		return DemoResponse.builder().val(UUID.randomUUID().toString()).build();
 	}
 
